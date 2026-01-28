@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="CT-1: Vision-Language-Camera Models Transfer Spatial Reasoning Knowledge to Camera-controllable Video Generation">
+  <meta property="og:title" content="CT-1"/>
+  <meta property="og:description" content="CT-1: Vision-Language-Camera Models Transfer Spatial Reasoning Knowledge to Camera-controllable Video Generation"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <!-- <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/> -->
+
+
+  <!-- <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG"> -->
+  <!-- <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG"> -->
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <!-- <meta name="twitter:image" content="assets/images/your_twitter_banner_image.png"> -->
+  <!-- <meta name="twitter:card" content="summary_large_image"> -->
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>CT-1</title>
+  <link href="static/css/style.css" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/x-icon" href="assets/images/CT-1.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<style>
+  td {
+    padding: 5px;
+  }
+</style>
+
+<style>
+  /* 导航整体样式 */
+  #toc {
+    position: fixed;          /* 固定在页面左上角 */
+    top: 20px;
+    left: 20px;
+    background: #ffffff;      /* 白色背景 */
+    border: 1px solid #ddd;   /* 边框 */
+    border-radius: 8px;       /* 圆角 */
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 阴影 */
+    font-family: "Arial", sans-serif;
+    max-width: 200px;
+  }
+  
+  /* 列表样式 */
+  #toc ul {
+    list-style: none;  /* 去掉默认圆点 */
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* 列表项样式 */
+  #toc li {
+    margin-bottom: 10px;
+  }
+  
+  /* 链接样式 */
+  #toc a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  
+  /* 悬停效果 */
+  #toc a:hover {
+    color: #007bff;
+    transform: translateX(4px);
+  }
+  
+  /* 当前高亮链接（可配合 JS 动态添加类 active） */
+  #toc a.active {
+    color: #007bff;
+    font-weight: 700;
+  }
+  </style>
+
+<body>
+  <section class="section hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              <span style="background: linear-gradient(to right, red, hotpink, violet); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">CT-1</span>: Vision-Language-Camera Models Transfer Spatial Reasoning Knowledge to Camera-controllable Video Generation
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">Anonymous submission</span>
+            </div>
+            <p>* This project page contains a large number of videos, please wait patiently for them to load.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<nav id="toc">
+  <ul>
+    <li><a href="#section1"><b>Table of Contents</b></a></li>
+    <li><a href="#section1">1. I2V Generation</a></li>
+    <li><a href="#section2">2. CT-1</a></li>
+  </ul>
+</nav>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Camera-controllable video generation aims to synthesize flexible and physically plausible camera movements. However, existing methods, which primarily rely on text prompts or predefined parameters, struggle to achieve user-intention-aligned control due to a lack of explicit spatial reasoning. To address these issues, we propose a novel Vision-Language-Camera task and introduce CT-1 (\textsc{Camera Transformer} 1), a specialized model designed to transfer spatial reasoning knowledge to video generation by accurately estimating camera trajectories. Built upon vision-language modules and a Diffusion Transformer, CT-1 employs a Wavelet-based Regularization Loss in the frequency domain to effectively learn complex camera trajectory distributions. These trajectories are integrated into a video diffusion model to enable spatially aware camera control that aligns with user intentions. To facilitate the training of CT-1, we design a dedicated data curation pipeline and construct CT-200K, a large-scale dataset containing over 47M frames. Experimental results demonstrate that our framework successfully bridges the gap between spatial reasoning and video synthesis, generating highly reliable and reasonable camera-controllable videos.
+          </p>
+          <!-- <img style="max-width: 400px; display: block; margin: 0 auto;" src="assets/figs/ots.png" /> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<section class="section hero" id="section1">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3"><span class="todo">[TODO #2]</span>1. Camera-controllable Image-to-Video (I2V) Generation</h2>
+      <div style="max-width: 1000px; margin: 0 auto;" class="has-text-justified">
+        <span class="todo">Here we give the description.</span>
+      </div>
+      <table class="video-table" >
+        <tr>
+          <td><video src="assets/generated_process/process_demo1.mp4" loop controls muted autoplay></video></td>
+        </tr>
+
+        <tr>
+          <td><video src="assets/generated_process/process_demo2.mp4" loop controls muted autoplay></video></td>
+        </tr>
+
+        <tr>
+          <td><video src="assets/generated_process/process_demo3.mp4" loop controls muted autoplay></video></td>
+        </tr>
+
+        <tr>
+          <td><video src="assets/generated_process/process_demo4.mp4" loop controls muted autoplay></video></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- BEGIN Showcases SECTION ------------------>
+<!-- Video carousel -->
+<section class="section hero is-light" id="section2">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3"><span class="todo">2. xxx</span></h2>
+      <h2 class="title is-5"><span class="todo">How to do it?</span></h2>
+      
+      <table style="max-width: 1500px; margin: auto; width: 100%; table-layout: fixed;">
+        <tr>
+          <td><video src="" loop controls muted autoplay></video></td>
+          <td><video src="" loop controls muted autoplay></video></td>
+        </tr>
+        
+        <tr>
+          <td><video src="" loop controls muted autoplay></video></td>
+          <td><video src="" loop controls muted autoplay></video></td>
+        </tr>
+
+        <tr>
+          <td><video src="" loop controls muted autoplay></video></td>
+          <td><video src="" loop controls muted autoplay></video></td>
+        </tr>
+
+        <tr>
+          <td><video src="" loop controls muted autoplay></video></td>
+          <td><video src="" loop controls muted autoplay></video></td>
+        </tr>
+      </table>
+      <div style="max-width: 1000px; margin: 0 auto;" class="has-text-justified">
+        <span class="todo">[TODO #3]</span> You can pause the video at any frame to examine the Gaussian distribution of a single frame. At that moment, you can notice that the motion information in the video has disappeared.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section hero" id="section6">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3"><span class="todo">[TODO #2]</span>6. Framework</h2>
+      <img style="max-width: 1000px; margin: 0 auto;" class="fit-picture" src="assets/framework/framework.png" alt="Grapefruit slice atop a pile of other slices" />
+      
+      <div style="max-width: 1000px; margin: 0 auto;" class="has-text-justified">
+        <span class="todo">Overview of our framework.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--BibTex citation -->
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>BibTex Code Here</code></pre>
+    </div>
+</section> -->
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  <script>
+  </script>
+</html>
