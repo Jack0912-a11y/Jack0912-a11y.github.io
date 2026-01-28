@@ -568,16 +568,16 @@
 <nav id="toc">
   <ul>
     <li><a href="#section1"><b>Table of Contents</b></a></li>
-    <li><a href="#section1">1. Novel paradigm</a></li>
-    <li><a href="#section2">2. Trajectories Gen</a></li>
-    <li><a href="#section3">3. Longer Prompts</a></li>
-    <li><a href="#section4">4. Image-Prompts</a></li>
-    <li><a href="#section5">5. Prompt-Images</a></li>
-    <li><a href="#section6">6. Challenging Cases</a></li>
-    <li><a href="#section7">7. Compared SOTAs</a></li>
-    <li><a href="#section8">8. To Other Methods</a></li>
-    <li><a href="#section9">9. More Examples</a></li>
-    <li><a href="#section10">10. Extension: Driving</a></li>
+    <li><a href="#section1">Novel paradigm</a></li>
+    <li><a href="#section2">1. Camera-Decision</a></li>
+    <li><a href="#section3">1.1 Longer Prompts</a></li>
+    <li><a href="#section4">1.2 Image-Prompts</a></li>
+    <li><a href="#section5">1.3 Prompt-Images</a></li>
+    <li><a href="#section6">2. Generation</a></li>
+    <li><a href="#section7">2.1 Compared SOTAs</a></li>
+    <li><a href="#section8">2.2 Cross-Model</a></li>
+    <li><a href="#section9">2.3 More Examples</a></li>
+    <li><a href="#section10">2.4 Extension: Driving</a></li>
   </ul>
 </nav>
 
@@ -617,7 +617,7 @@
   <div class="hero-body">
     <div class="container">
       <!-- <h2 class="section-title">1. Camera-Decision-First, Generation-Next.</h2> -->
-      <h2 class="title is-3">1. "VLC + Diffusion" Paradigm: Camera-Decision-First, Generation-Next.</h2>
+      <h2 class="title is-3">"VLC + Diffusion" Paradigm: Camera-Decision-First, Generation-Next</h2>
       <div class="description-text">
         In the <b>"camera-decision" stage</b>, our framework semantically determines how the camera moves based on the spatial knowledge within the user's intention, and generate camera trajectories over time. We refer to this category of models as Vision-Language-Camera (VLC) model.
         A key strength of the VLC model is its capacity to jointly reason about visual content and semantic cues for predicting future spatiotemporal camera poses, thereby promoting semantic alignment between camera trajectories and visual content in the video <b>"generation" stage</b>.  
@@ -636,6 +636,18 @@
           <p>Qualitative example (b).</p>
         </div>
       </div>
+      <br>
+      <div style="max-width: 1000px; margin: 0 auto;" class="has-text-justified">
+        <figure>
+          <figcaption>
+            <strong>Camera coordinate system and motion semantics.</strong><br>
+            · The <span style="color: red; font-weight: 600;">red axis (<em>x</em>-axis)</span> denotes the horizontal direction, where the arrow direction corresponds to camera movement to the right, and the opposite direction indicates movement to the left.<br>
+            · The <span style="color: #1f77b4; font-weight: 600;">blue axis (<em>z</em>-axis)</span> represents the depth direction, with the arrow direction indicating zoom-in or forward motion, and the opposite direction indicating zoom-out or backward motion.<br>
+            · The <span style="color: #2ca02c; font-weight: 600;">green axis (<em>y</em>-axis)</span> denotes the vertical direction, where the arrow direction corresponds to downward camera motion, and the opposite direction indicates upward motion.<br>
+            * All trajectory visualizations on this webpage follow these coordinate definition.
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -644,7 +656,7 @@
   <div class="hero-body">
     <div class="container">
       <!-- 标题保持不变 -->
-      <h2 class="title is-3">2. CT-1: Camera Trajectories Estimation via Vision-Language Inputs.</h2>
+      <h2 class="title is-3">1. CT-1: Camera Trajectories Estimation via Vision-Language Inputs</h2>
 
       <!-- 描述文本 -->
       <div class="description-text">
@@ -704,7 +716,7 @@
   <div class="hero-body">
     <div class="container">
       <!-- 标题保持不变 -->
-      <h2 class="title is-3">3. CT-1: Camera Trajectories Estimation under Complex Camera Descriptions.</h2>
+      <h2 class="title is-3">1.1 CT-1: Camera Trajectories Estimation under Complex Camera Descriptions</h2>
 
       <!-- 描述文本 -->
       <div class="description-text">
@@ -764,7 +776,7 @@
 <section class="section hero" id="section4">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">4. Multi-instance cross-validation of CT-1 (Image-Prompts)</h2>
+      <h2 class="title is-3">1.2 Multi-instance cross-validation of CT-1 (Image-Prompts)</h2>
       <div class="description-text">
         To systematically evaluate the camera trajectory modeling capability of CT-1 under different image-text pairing conditions, we design two complementary cross-validation experiments that examine <b>“multiple camera descriptions with a single image”</b> and <b>“multiple images with a single camera description”</b>, respectively.
       </div>
@@ -867,7 +879,7 @@
 <section class="section hero is-light" id="section5">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">5. Multi-instance cross-validation of CT-1 (Prompt-Images)</h2>
+      <h2 class="title is-3">1.3 Multi-instance cross-validation of CT-1 (Prompt-Images)</h2>
 
       <div class="description-text">
         Multiple images with a single camera description:
@@ -988,10 +1000,12 @@
   <div class="hero-body">
     <div class="container">
       <!-- <h2 class="section-title">1. Camera-Decision-First, Generation-Next.</h2> -->
-      <h2 class="title is-3">6. Video Generation with CT-1 in Challenging Scenarios.</h2>
+      <h2 class="title is-3">2. Video Generation with CT-1</h2>
       <div class="description-text">
         We systematically investigate the challenges of camera trajectory estimation and video generation across diverse complex scenarios. As illustrated in the following examples, we focus on multiple representative complex scenes and consider two typical camera motion patterns: <b>forward motion</b> and <b>front-left rotational motion</b>. For each scenario, we design scene-specific textual prompts to guide the model toward reasonable camera motion inference and video generation.
       </div>
+      <p><b>Below, we give the qualitative examples in Challenging Scenarios.</b></p>
+      <br>
 
       <div class="video-grid">
         <div class="video-card">
@@ -1037,7 +1051,7 @@
   <div class="hero-body">
     <div class="container">
       <!-- <h2 class="section-title">1. Camera-Decision-First, Generation-Next.</h2> -->
-      <h2 class="title is-3">7. Compared with State-of-the-Art Foundation Models.</h2>
+      <h2 class="title is-3">2.1 Compared with State-of-the-Art Foundation Models</h2>
       <div class="description-text">
         Furthermore, we compare our method with multiple state-of-the-art foundation models, including <b>CogVideoX, LTX-Video, Wan2.1, and Wan2.2, </b>using the same image and text inputs across diverse scenes. The qualitative visualizations clearly indicate that our approach achieves more accurate and consistent camera control.
       </div>
@@ -1104,7 +1118,7 @@
 <section class="section hero" id="section8">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">8. Applying CT-1 to Other Controllable Video Generation Models.</h2>
+      <h2 class="title is-3">2.2 Cross-Model: applying CT-1 to More Controllable Video Generation Models</h2>
 
       <div style="max-width: 1000px; margin: 0 auto;" class="has-text-justified">
         <span>In our camera-controllable video generation framework, the camera parameters predicted by CT-1 are designed to be compatible with existing video generation models. Accordingly, we feed the camera trajectories estimated by CT-1 into CameraCtrl and MotionCtrl, and evaluate their performance on different datasets, namely RealEstate10K and MultiCamVideo.</span>
@@ -1142,7 +1156,7 @@
 <section class="section hero is-light" id="section9">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">9. More Examples of Our Camera-Controllable Video Generation Framework.</h2>
+      <h2 class="title is-3">2.3 More Examples of Our Camera-Controllable Video Generation Framework</h2>
     
       <div class="video-container">
         <video src="assets/more/more1.mp4" loop controls muted autoplay></video>
@@ -1175,7 +1189,7 @@
 <section class="section hero" id="section10">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">10. Extension: performances of CT-1 on Driving Scenarios.</h2>
+      <h2 class="title is-3">2.4 Extension: performances of CT-1 on Driving Scenarios</h2>
     
       <div class="video-container">
         <video src="assets/driving/driving_case1.mp4" loop controls muted autoplay></video>
